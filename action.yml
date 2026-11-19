@@ -1,0 +1,14 @@
+name: Branch Name Check
+description: Check pull request source branches for conventional prefixes and valid Git ref syntax, including pull requests from forks.
+author: jamestkelly
+branding:
+  icon: git-branch
+  color: blue
+inputs:
+  branch:
+    description: Source branch name, without refs/heads/.
+    required: false
+    default: ${{ github.head_ref || github.ref_name }}
+runs:
+  using: node24
+  main: dist/check.js
